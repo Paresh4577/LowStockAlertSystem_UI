@@ -1,0 +1,15 @@
+.container { max-width: 1000px; margin: 2rem auto; padding: 1rem; }
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #f4f4f4; }
+.filters { margin: 1rem 0; }
+.loading { text-align: center; padding: 2rem; font-size: 1.2em; color: #666; }
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+}
+.critical { background-color: #d32f2f; }
+.warning { background-color: #f57c00; }

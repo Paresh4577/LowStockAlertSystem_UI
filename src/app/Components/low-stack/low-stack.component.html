@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Low Stock Alert</h2>
+  
+    <div class="filters" *ngIf="categories.length > 0">
+      <label>Filter by Category: </label>
+      <select [(ngModel)]="selectedCategory" (change)="filterByCategory()">
+        <option value="">All Categories</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
+  
+    <div class="loading" *ngIf="loading">
+      <p>Loading low stock items...</p>
+    </div>
+  
+    <table *ngIf="!loading && filteredItems.length > 0">
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Category</th>
+          <th>Quantity Left</th>
+          <th>Reorder Level</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredItems">
+          <td>{{ item.itemName }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.quantityLeft }}</td>
+          <td>{{ item.reorderLevel }}</td>
+          <td><span class="status" [class]="getStatusClass(item.status)">{{ item.status }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="!loading && filteredItems.length === 0">No low stock items found.</p>
+  </div>
